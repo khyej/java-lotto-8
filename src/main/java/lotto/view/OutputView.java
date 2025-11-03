@@ -11,6 +11,7 @@ public class OutputView {
     );
 
     public void displayLottoCount(int count) {
+        System.out.println();
         System.out.println(count + "개를 구매했습니다.");
     }
 
@@ -21,6 +22,7 @@ public class OutputView {
     }
 
     public void displayStats(LottoStats lottoStats) {
+        System.out.println();
         System.out.println("당첨 통계");
         System.out.println("---");
         for (LottoRank lottoRank : DISPLAY_RANK) {
