@@ -42,10 +42,10 @@ public class LottoController {
         while(true){
             try{
                 String input = inputView.getPurchaseAmount();
-                int amount = Validator.toInt(input);
+                int amount = Validator.toInt(input, "[ERROR] 구입 금액은 숫자여야 합니다.");
                 return new PurchaseAmount(amount);
             }catch (IllegalArgumentException e){
-                outputView.displayError("[ERROR] 구매금액은 숫자여야 합니다.");
+                outputView.displayError(e.getMessage());
             }
         }
     }
@@ -57,7 +57,7 @@ public class LottoController {
                 int bonusNumber = readBonusNumber();
                 return new WinLotto(winNumbers, bonusNumber);
             }catch (IllegalArgumentException e){
-                outputView.displayError("[ERROR] 당첨 번호 및 보너스 번호는 숫자여야 합니다.");
+                outputView.displayError(e.getMessage());
             }
         }
     }
@@ -69,12 +69,12 @@ public class LottoController {
                 String[] numbers = input.split(",");
                 List<Integer> winNumbers = new ArrayList<>();
                 for(String number : numbers){
-                    int winNumber = Validator.toInt(number.trim());
+                    int winNumber = Validator.toInt(number.trim(), "[ERROR] 당첨 번호는 숫자여야 합니다.");
                     winNumbers.add(winNumber);
                 }
                 return new Lotto(winNumbers);
             }catch (IllegalArgumentException e){
-                outputView.displayError("[ERROR] 당첨 번호가 잘 못 입력되었습니다.");
+                outputView.displayError(e.getMessage());
             }
         }
     }
@@ -83,9 +83,9 @@ public class LottoController {
         while(true){
             try{
                 String input = inputView.getBonusNumber();
-                return Validator.toInt(input);
+                return Validator.toInt(input, "[ERROR] 보너스 번호는 숫자여야 합니다.");
             }catch (IllegalArgumentException e){
-                outputView.displayError("[ERROR] 보너스 번호는 1개의 숫자여야 합니다.");
+                outputView.displayError(e.getMessage());
             }
         }
     }

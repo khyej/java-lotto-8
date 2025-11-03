@@ -18,7 +18,7 @@ public class PurchaseAmount {
 
     private void validate(int amount) {
         if (amount <= 0 || amount % 1000 != 0) {
-            throw new IllegalArgumentException("[ERROR] 구매 금액은 1000원 단위로 입력해주세요.");
+            throw new IllegalArgumentException("[ERROR] 구입 금액은 1000원 단위로 입력해주세요.");
         }
     }
 }
