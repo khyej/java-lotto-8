@@ -33,7 +33,7 @@ public class OutputView {
     }
 
     public void displayTotalReturn(double totalReturn){
-        System.out.printf("총 수익률은 %.1f %%입니다.", totalReturn);
+        System.out.printf("총 수익률은 %.1f%%입니다.", totalReturn);
     }
 
     public void displayError(String message){
