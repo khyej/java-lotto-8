@@ -19,7 +19,7 @@ class LottoNumberGeneratorTest {
 
     @Test
     @DisplayName("로또 번호 정렬 테스트")
-    void generateSortNumber(){
+    void generateSortNumber() {
         LottoNumberGenerator test = new LottoNumberGenerator();
         List<Integer> result = test.generate();
         assertThat(result).isSorted();

@@ -16,13 +16,13 @@ public class LottoController {
     private final OutputView outputView;
     private final LottoPrinter lottoPrinter;
 
-    public LottoController(InputView inputView, OutputView outputView, LottoPrinter lottoPrinter){
+    public LottoController(InputView inputView, OutputView outputView, LottoPrinter lottoPrinter) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.lottoPrinter = lottoPrinter;
     }
 
-    public void run(){
+    public void run() {
         PurchaseAmount purchaseAmount = createPurchaseAmount();
         List<Lotto> lottos = lottoPrinter.print(purchaseAmount);
 
@@ -38,53 +38,53 @@ public class LottoController {
         outputView.displayTotalReturn(totalReturn);
     }
 
-    private PurchaseAmount createPurchaseAmount(){
-        while(true){
-            try{
+    private PurchaseAmount createPurchaseAmount() {
+        while (true) {
+            try {
                 String input = inputView.getPurchaseAmount();
                 int amount = Validator.toInt(input, "[ERROR] 구입 금액은 숫자여야 합니다.");
                 return new PurchaseAmount(amount);
-            }catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 outputView.displayError(e.getMessage());
             }
         }
     }
 
-    private WinLotto createWinLotto(){
+    private WinLotto createWinLotto() {
         Lotto winNumbers = readWinNumbers();
-        while(true){
-            try{
+        while (true) {
+            try {
                 int bonusNumber = readBonusNumber();
                 return new WinLotto(winNumbers, bonusNumber);
-            }catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 outputView.displayError(e.getMessage());
             }
         }
     }
 
-    private Lotto readWinNumbers(){
-        while(true){
-            try{
+    private Lotto readWinNumbers() {
+        while (true) {
+            try {
                 String input = inputView.getWinNumbers();
                 String[] numbers = input.split(",");
                 List<Integer> winNumbers = new ArrayList<>();
-                for(String number : numbers){
+                for (String number : numbers) {
                     int winNumber = Validator.toInt(number.trim(), "[ERROR] 당첨 번호는 숫자여야 합니다.");
                     winNumbers.add(winNumber);
                 }
                 return new Lotto(winNumbers);
-            }catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 outputView.displayError(e.getMessage());
             }
         }
     }
 
-    private int readBonusNumber(){
-        while(true){
-            try{
+    private int readBonusNumber() {
+        while (true) {
+            try {
                 String input = inputView.getBonusNumber();
                 return Validator.toInt(input, "[ERROR] 보너스 번호는 숫자여야 합니다.");
-            }catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 outputView.displayError(e.getMessage());
             }
         }

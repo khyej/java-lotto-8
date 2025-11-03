@@ -18,11 +18,11 @@ class LottoPrinterTest {
 
     @Test
     @DisplayName("로또 당첨 결과")
-    void calculateStatsTest(){
+    void calculateStatsTest() {
         LottoPrinter lottoPrinter = new LottoPrinter(new LottoNumberGenerator());
 
-        WinLotto winLotto = new WinLotto(new Lotto(List.of(1,2,3,4,5,6)), 7);
-        List<Lotto> lottos = List.of(new Lotto(List.of(1,2,3,4,5,6)));
+        WinLotto winLotto = new WinLotto(new Lotto(List.of(1, 2, 3, 4, 5, 6)), 7);
+        List<Lotto> lottos = List.of(new Lotto(List.of(1, 2, 3, 4, 5, 6)));
 
         LottoStats lottoStats = lottoPrinter.calculateStats(lottos, winLotto);
         assertThat(lottoStats.getCount(LottoRank.FIRST)).isEqualTo(1);

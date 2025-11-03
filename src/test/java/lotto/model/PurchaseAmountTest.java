@@ -9,10 +9,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class PurchaseAmountTest {
-
     @ParameterizedTest
     @DisplayName("로또 구입 금액은 1000원 단위의 숫자여야 한다.")
-    @ValueSource(ints = { 0, -1000, 1500})
+    @ValueSource(ints = {0, -1000, 1500})
     void validatePurchaseAmountTest(int amount) {
         assertThatThrownBy(() -> new PurchaseAmount(amount)).isInstanceOf(IllegalArgumentException.class);
     }

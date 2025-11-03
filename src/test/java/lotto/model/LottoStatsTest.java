@@ -9,7 +9,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class LottoStatsTest {
-
     @Test
     @DisplayName("로또 수익률 계산")
     void calculateTotalReturnTest() {
