@@ -5,16 +5,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 import lotto.utils.LottoNumberGenerator;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class LottoPrinterTest {
     @Test
+    @DisplayName("로또 발행")
     void printTest() {
         LottoPrinter lottoPrinter = new LottoPrinter(new LottoNumberGenerator());
         assertDoesNotThrow(() -> lottoPrinter.print(new PurchaseAmount(1000)));
     }
 
     @Test
+    @DisplayName("로또 당첨 결과")
     void calculateStatsTest(){
         LottoPrinter lottoPrinter = new LottoPrinter(new LottoNumberGenerator());
 

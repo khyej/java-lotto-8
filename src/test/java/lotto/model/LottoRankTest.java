@@ -2,11 +2,13 @@ package lotto.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class LottoRankTest {
     @ParameterizedTest
+    @DisplayName("로또 당첨 기준")
     @CsvSource({
             "LOSE,0,false",
             "LOSE,1,false",

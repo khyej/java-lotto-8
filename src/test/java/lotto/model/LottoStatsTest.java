@@ -3,14 +3,15 @@ package lotto.model;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.HashMap;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class LottoStatsTest {
 
     @Test
+    @DisplayName("로또 수익률 계산")
     void calculateTotalReturnTest() {
         Map<LottoRank, Integer> testStats = new HashMap<>();
         testStats.put(LottoRank.FIFTH, 1);
@@ -24,6 +25,7 @@ class LottoStatsTest {
     }
 
     @Test
+    @DisplayName("로또 당첨 결과 통계")
     void getCountTest() {
         Map<LottoRank, Integer> testStats = new HashMap<>();
         testStats.put(LottoRank.FIFTH, 2);

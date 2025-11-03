@@ -23,12 +23,7 @@ class LottoTest {
     }
 
     @Test
-    void numbersRangeTest() {
-        assertThatThrownBy(() -> new Lotto(List.of(1, 2, 3, 4, 5, 46)))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
+    @DisplayName("로또 객체 생성")
     void getNumbersTest() {
         List<Integer> testNumbers = List.of(1, 2, 3, 4, 5, 6);
         Lotto lotto = new Lotto(testNumbers);
@@ -36,5 +31,12 @@ class LottoTest {
         List<Integer> testResultNumbers = lotto.getNumbers();
 
         assertThat(testResultNumbers).isEqualTo(testNumbers);
+    }
+
+    @Test
+    @DisplayName("로또 번호는 1~45 사이의 숫자여야 한다.")
+    void numbersRangeTest() {
+        assertThatThrownBy(() -> new Lotto(List.of(1, 2, 3, 4, 5, 46)))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
