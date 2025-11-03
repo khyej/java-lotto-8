@@ -14,13 +14,10 @@ public enum LottoRank {
     private final int prizeMoney;
     private final boolean bonusNumber;
 
-    private final String description;
-
     LottoRank(int matchCount, int prizeMoney, boolean bonusNumber) {
         this.matchCount = matchCount;
         this.prizeMoney = prizeMoney;
         this.bonusNumber = bonusNumber;
-        this.description = formatDescription(matchCount, prizeMoney);
     }
 
     public int getMatchCount() {
@@ -31,22 +28,17 @@ public enum LottoRank {
         return prizeMoney;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public static LottoRank valueOf(int matchCount, boolean bonusNumber) {
         if (matchCount == 5 && bonusNumber) {
             return SECOND;
         }
-
         return Arrays.stream(values())
                 .filter(rank -> rank.matchCount == matchCount && !rank.bonusNumber)
                 .findFirst()
                 .orElse(LOSE);
     }
 
-    private String formatDescription(int matchCount, int prizeMoney) {
+    public String getDescription() {
         if (this == LOSE) {
             return "";
         }
