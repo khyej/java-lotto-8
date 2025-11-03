@@ -3,6 +3,9 @@ package lotto.model;
 import java.util.List;
 
 public class WinLotto {
+    private static final int START = 1;
+    private static final int END = 45;
+
     private final Lotto winLotto;
     private final int bonusNumber;
 
@@ -19,8 +22,8 @@ public class WinLotto {
     }
 
     private void validateBonusNumber(Lotto winLotto, int bonusNumber) {
-        if (bonusNumber < 1 || bonusNumber > 45) {
-            throw new IllegalArgumentException("보너스 번호는 1~45 사이의 숫자여야 합니다.");
+        if (bonusNumber < START || bonusNumber > END) {
+            throw new IllegalArgumentException("보너스 번호는 " + START + "~" + END + " 사이의 숫자여야 합니다.");
         }
 
         if (winLotto.getNumbers().contains(bonusNumber)) {
