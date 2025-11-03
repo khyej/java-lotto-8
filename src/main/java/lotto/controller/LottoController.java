@@ -42,7 +42,7 @@ public class LottoController {
         while (true) {
             try {
                 String input = inputView.getPurchaseAmount();
-                int amount = Validator.toInt(input, "[ERROR] 구입 금액은 숫자여야 합니다.");
+                int amount = Validator.toInt(input, "구입 금액은 숫자여야 합니다.");
                 return new PurchaseAmount(amount);
             } catch (IllegalArgumentException e) {
                 outputView.displayError(e.getMessage());
@@ -69,7 +69,7 @@ public class LottoController {
                 String[] numbers = input.split(",");
                 List<Integer> winNumbers = new ArrayList<>();
                 for (String number : numbers) {
-                    int winNumber = Validator.toInt(number.trim(), "[ERROR] 당첨 번호는 숫자여야 합니다.");
+                    int winNumber = Validator.toInt(number.trim(), "당첨 번호는 숫자여야 합니다.");
                     winNumbers.add(winNumber);
                 }
                 return new Lotto(winNumbers);
@@ -83,7 +83,7 @@ public class LottoController {
         while (true) {
             try {
                 String input = inputView.getBonusNumber();
-                return Validator.toInt(input, "[ERROR] 보너스 번호는 숫자여야 합니다.");
+                return Validator.toInt(input, "보너스 번호는 숫자여야 합니다.");
             } catch (IllegalArgumentException e) {
                 outputView.displayError(e.getMessage());
             }
